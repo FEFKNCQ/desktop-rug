@@ -45,4 +45,4 @@ npm --prefix web test
 
 ## 交付检查
 
-确认 `DesktopRug.exe`、`web/enabled.flag`、`web/node_modules/electron/dist/electron.exe` 和所有注册样式图片存在；确认八组纯逻辑测试通过。预览应有四种壁纸选项、四种材质选项和扫帚/整理入口。真实桌面检查图标没有持续闪烁，原壁纸可恢复，并向使用者说明退出不会自动还原壁纸与网格设置。
+确认 `DesktopRug.exe`、`web/enabled.flag`、`web/node_modules/electron/dist/electron.exe` 和所有注册样式图片存在；确认八组纯逻辑测试通过。预览应有四种壁纸选项、五种毯子/纸张选项和扫帚/整理入口。真实桌面检查图标没有持续闪烁，原壁纸可恢复，并向使用者说明退出不会自动还原壁纸与网格设置。

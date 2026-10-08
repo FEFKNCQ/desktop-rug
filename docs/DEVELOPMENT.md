@@ -75,7 +75,7 @@ node qa/drag-stress.mjs
 
 现有材质为 `plush`（长绒、毛束）、`short`（短绒、印花）、`paper`（薄纸、无毛发）。仅增加印花不需要改物理引擎；新材质类型需同步 `SurfaceStyles.cs`、`materials.mjs`、`cloth.mjs` 与校验/测试。避免把摄影中的透视、人物或褶皱烘焙进 UV 图案。更新 README 图鉴和素材来源记录后运行校验与材质测试。
 
-`assets/persian-rug.png` 是保留的早期 WPF 波斯毯素材，当前 4.6 的风格面板未启用；它不是额外的第五款当前毯子。
+`assets/persian-rug.png` 是保留的早期 WPF 波斯毯素材，当前风格面板未启用；它属于保留的历史素材。
 
 ## 性能与已知限制
 
@@ -93,4 +93,4 @@ node qa/drag-stress.mjs
 python qa/package-v4.py
 ```
 
-输出位于 `dist/DesktopRug-Windows-v4.6.zip`，包含 EXE、所需 Electron 运行时、Three.js、资产、源码与说明。打包脚本使用明确清单并检查压缩包完整性，不收集运行缓存、原壁纸和个人桌面状态。源码仓库无需提交整个 `node_modules`。
+输出位于 `dist/DesktopRug-Windows-v4.6.1.zip`，包含 EXE、所需 Electron 运行时、Three.js、资产、源码与说明。打包脚本使用明确清单并检查压缩包完整性，不收集运行缓存、原壁纸和个人桌面状态。源码仓库无需提交整个 `node_modules`。

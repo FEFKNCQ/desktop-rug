@@ -14,7 +14,7 @@ for required in [root / 'DesktopRug.exe', runtime / 'electron.exe', root / 'web/
 
 files = [root / name for name in ['DesktopRug.exe', 'README.md', 'AGENTS.md', 'ASSET_NOTICE.md', 'LICENSE', '使用说明.txt', 'setup.ps1', 'build.ps1']]
 files += list((root / 'src').glob('*.cs')) + [root / 'src/app.manifest']
-asset_names = {'rugs.json', 'wallpapers.json', 'rug.ico', 'persian-rug.png', 'asset-provenance.txt', 'style-prompts-v45.txt'}
+asset_names = {'rugs.json', 'wallpapers.json', 'rug.ico', 'persian-rug.png', 'asset-provenance.txt', 'style-prompts-v45.txt', 'style-prompts-ocean-dream.txt'}
 for registry in ['rugs.json', 'wallpapers.json']:
     asset_names.update(style['file'] for style in json.loads((root / 'assets' / registry).read_text(encoding='utf-8')) if style.get('file'))
 files += [root / 'assets' / name for name in asset_names]

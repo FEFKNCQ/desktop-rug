@@ -1,0 +1,63 @@
+{
+  "version": "4.6.1",
+  "styleTest": {
+    "passed": true,
+    "checks": [
+      {
+        "id": "plush",
+        "selected": "plush",
+        "furLayers": 5,
+        "strandsVisible": true,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 9,
+        "triangles": 201602
+      },
+      {
+        "id": "autumn-cats",
+        "selected": "autumn-cats",
+        "furLayers": 3,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 6,
+        "triangles": 24002
+      },
+      {
+        "id": "jerry-note",
+        "selected": "jerry-note",
+        "furLayers": 3,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 6,
+        "triangles": 24002
+      },
+      {
+        "id": "ocean-dream",
+        "selected": "ocean-dream",
+        "furLayers": 3,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 6,
+        "triangles": 24002
+      },
+      {
+        "id": "tissue",
+        "selected": "tissue",
+        "furLayers": 0,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 3,
+        "triangles": 9602
+      }
+    ],
+    "wallpaperOptions": 4,
+    "rugOptions": 5
+  },
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 2060 (0x00001F15) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "sameShortPileGeometry": true,
+  "referenceOriginalExcluded": true
+}

@@ -199,12 +199,14 @@ if(settings.styleTest){
     await selectRug(style.id);await settle();await capture(style.id);
     checks.push({id:style.id,selected:currentRug.id,furLayers:fur.filter(m=>m.visible).length,strandsVisible:strands.mesh.visible,textureLoaded:!style.file||!!body.material.map,shaderErrors:renderer.info.programs.filter(p=>p.diagnostics?.runnable===false).length,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
   }
-  for(const [id,name] of [['autumn-cats','short-fold'],['tissue','paper-fold']]){
+  for(const [id,name] of [['autumn-cats','short-fold'],['tissue','paper-fold'],['ocean-dream','ocean-fold']]){
     await selectRug(id);flat();await settle();workerSend({type:'grab',x:state.x+state.width*.47,y:state.y+state.width*.3});await pause(120);
     for(let n=0;n<24;n++){workerSend({type:'move',x:state.x+state.width*.47-n*6,y:state.y+state.width*.3-n*4});await pause(20);}
     workerSend({type:'release'});await settle();await capture(name);
   }
-  stylesPanel.hidden=false;await capture('panel');
+  stylesPanel.hidden=false;
+  await Promise.all([...wallpapers,...rugStyles].filter(s=>s.file).map(s=>{const image=new Image();image.src='../assets/'+encodeURIComponent(s.file);return image.decode();}));
+  await capture('panel');
   const passed=checks.every(c=>c.id===c.selected&&c.textureLoaded&&!c.shaderErrors&&(c.id==='plush'?c.strandsVisible&&!(!c.furLayers):!c.strandsVisible)&&(c.id!=='tissue'||c.furLayers===0));
   await api.metrics({...report(),styleTest:{passed,checks,wallpaperOptions:document.querySelectorAll('[data-wallpaper]').length,rugOptions:document.querySelectorAll('[data-rug]').length}});
 }
