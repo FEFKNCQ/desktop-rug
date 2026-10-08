@@ -1,0 +1,6 @@
+[
+  {"id":"wood","name":"木地板","file":"wood-floor.png"},
+  {"id":"rosewood","name":"红木地板","file":"rosewood-floor.png"},
+  {"id":"marble","name":"大理石瓷砖","file":"marble-tile-floor.png"},
+  {"id":"original","name":"原壁纸","file":null}
+]

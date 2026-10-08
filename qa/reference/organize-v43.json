@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "allIconsAssigned": true,
+  "unknownFilesIncluded": true,
+  "avoidsRug": true,
+  "repeatable": true,
+  "planMs": 21.998800000000003,
+  "nativeBroomNoReplacement": true,
+  "systemIconsMovable": true,
+  "maxNativeBatchesInFlight": 1,
+  "coalescedUpdates": 1
+}

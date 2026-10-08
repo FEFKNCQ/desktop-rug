@@ -1,0 +1,21 @@
+{
+  "name": "desktop-rug",
+  "version": "4.6.0",
+  "private": true,
+  "main": "main.cjs",
+  "description": "Local Windows desktop plush blanket",
+  "dependencies": {
+    "electron": "44.5.1",
+    "three": "0.185.0"
+  },
+  "scripts": {
+    "check": "node ../scripts/check.mjs",
+    "test": "node ../scripts/check.mjs && node ../scripts/test.mjs",
+    "preview": "electron . --preview",
+    "start": "electron ."
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "license": "MIT"
+}

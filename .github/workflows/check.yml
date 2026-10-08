@@ -1,0 +1,24 @@
+name: Windows source checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install dependencies and build native launcher
+        shell: powershell
+        run: ./setup.ps1
+      - name: Check tracked content for private data
+        run: node scripts/privacy-check.mjs
+      - name: Test simulation and input logic
+        run: npm --prefix web test

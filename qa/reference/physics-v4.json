@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "successiveGrabs": 6,
+  "maxStretch": 1.0917447266406908,
+  "medianMs": 8.163400000000024,
+  "p95Ms": 14.523200000000543,
+  "heldHeight": 70.57342529296875,
+  "restHeight": 55.462196350097656,
+  "retainedFoldAndSleep": true,
+  "finite": true,
+  "translateAndScale": true
+}

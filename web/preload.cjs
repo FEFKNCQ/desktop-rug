@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer}=require('electron');
+contextBridge.exposeInMainWorld('desktopRug',{settings:()=>ipcRenderer.invoke('settings'),call:(method,args)=>ipcRenderer.invoke('desktop',method,args),hit:value=>ipcRenderer.send('hit',value),ready:()=>ipcRenderer.send('ready'),metrics:data=>ipcRenderer.invoke('metrics',data),snapshot:data=>ipcRenderer.invoke('snapshot',data),onCommand:fn=>ipcRenderer.on('command',(_e,command)=>fn(command)),onFailure:fn=>ipcRenderer.on('failure',(_e,text)=>fn(text))});

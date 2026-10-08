@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "noContactTeleport": true,
+  "noPullFromBehind": true,
+  "returnToOriginCommitted": true,
+  "mouseSamples": 600,
+  "displayFrames": 60,
+  "nativeBatches": 27,
+  "maxInFlight": 1,
+  "finalPositionCommitted": true
+}

@@ -1,0 +1,46 @@
+# Dependencies and local Chromium profile
+**/node_modules/
+web/profile/
+dist/
+*.exe
+*.dll
+*.pdb
+*.zip
+*.cpuprofile
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+.npmrc
+.DS_Store
+Thumbs.db
+
+# Personal desktop, wallpaper, icon and cloth state (never publish)
+/state.ini
+/cloth-shape.bin
+/plush-shape.json
+/floor-enabled.txt
+/rug-style.txt
+/status.txt
+/original-*
+/before-last-sweep.bin
+/push-active.txt
+/wallpaper-backup/
+/revisions/
+
+# QA outputs may contain desktop paths or screenshots. Sources stay tracked.
+/qa/*
+!/qa/*.mjs
+!/qa/*.py
+!/qa/README.md
+!/qa/reference/
+
+# Locally downloaded references and recordings
+*.mp4
+*.mov
+*.webm
+*.dmp

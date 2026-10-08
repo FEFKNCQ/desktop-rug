@@ -1,0 +1,101 @@
+{
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 2060 (0x00001F15) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "canvas": [
+    1090,
+    715
+  ],
+  "callbacks": {
+    "n": 449,
+    "median": 20.899999999999636,
+    "p95": 34.80000000000109,
+    "max": 79.70000000149003
+  },
+  "drawIntervals": {
+    "n": 448,
+    "median": 20.899999999999636,
+    "p95": 34.80000000000109,
+    "max": 55.5
+  },
+  "poseIntervals": {
+    "n": 448,
+    "median": 19.800000000745058,
+    "p95": 37.30000000074506,
+    "max": 52.80000000074506
+  },
+  "simulation": {
+    "n": 449,
+    "median": 19.699999999254942,
+    "p95": 37.100000001490116,
+    "max": 71.09999999962747
+  },
+  "clothInput": {
+    "sent": 407,
+    "coalesced": 1670,
+    "pending": 0,
+    "inFlight": 0
+  },
+  "renderCpu": {
+    "n": 449,
+    "median": 2.400000000372529,
+    "p95": 4,
+    "max": 5
+  },
+  "mouse": {
+    "n": 0,
+    "median": 0,
+    "p95": 0,
+    "max": 0
+  },
+  "poseCount": 449,
+  "active": true,
+  "bounds": {
+    "minX": 67.95242309570312,
+    "maxX": 443.02252197265625,
+    "minY": -208.6009979248047,
+    "maxY": 266.60882568359375
+  },
+  "maxHeight": 262.2493896484375,
+  "furLayers": 5,
+  "rugStyle": "plush",
+  "strandsVisible": true,
+  "drawCalls": 9,
+  "triangles": 201602,
+  "broom": {
+    "roundTripMs": {
+      "n": 0,
+      "median": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "frameIntervalMs": {
+      "n": 0,
+      "median": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "moved": 0
+  },
+  "dragBenchmark": {
+    "done": true,
+    "rounds": 3,
+    "requestedPointerSamples": 2077,
+    "inputRateTargetHz": 250
+  },
+  "frameworkVisible": true,
+  "gpu": {
+    "2d_canvas": "enabled",
+    "direct_rendering_display_compositor": "disabled_off_ok",
+    "gpu_compositing": "enabled",
+    "multiple_raster_threads": "enabled_on",
+    "opengl": "enabled_on",
+    "rasterization": "enabled",
+    "raw_draw": "disabled_off_ok",
+    "skia_graphite": "disabled_off",
+    "trees_in_viz": "disabled_off",
+    "video_decode": "enabled",
+    "video_encode": "enabled",
+    "webgl": "enabled",
+    "webgpu": "enabled",
+    "webnn": "disabled_off"
+  }
+}

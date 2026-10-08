@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {SweepQueue} from './sweep-queue.mjs';
+import {ClothSim} from './cloth.mjs';
+import {VCOUNT,smoothSurface} from './surface.mjs';
+let releaseFirst,events=[];
+const queue=new SweepQueue(async ids=>{events.push('send:'+ids.join(','));if(ids[0]==='a')await new Promise(resolve=>releaseFirst=resolve);return ids;},ids=>events.push('done:'+ids.join(',')),()=>assert.fail('unexpected rejection'));
+queue.add('a');queue.flush();await Promise.resolve();queue.add('b');let drained=false;const drain=queue.drain().then(()=>drained=true);await Promise.resolve();assert(!drained,'Undo must wait for in-flight native work');releaseFirst();await drain;assert.deepEqual(events,['send:a','done:a','send:b','done:b']);
+const cloth=new ClothSim();cloth.grab(980,560);for(let n=0;n<90;n++){cloth.move(980-n*2,560-n);cloth.step();}const surface=new Float32Array(VCOUNT*3),start=performance.now();for(let n=0;n<120;n++)smoothSurface(cloth.p,surface);const averageMs=(performance.now()-start)/120;assert(surface.every(Number.isFinite));const minZ=Math.min(...cloth.p.filter((_,i)=>i%3===2));for(let n=2;n<surface.length;n+=3)assert(surface[n]>=minZ-.001,'Smoothing must not penetrate below source surface bounds');
+const report={passed:true,queuedSweepAndUndoOrdered:true,surfaceFinite:true,subdivisionBelowFloor:false,smoothingAverageMs:averageMs};fs.writeFileSync(new URL('../qa/interactions-v41.json',import.meta.url),JSON.stringify(report,null,2));console.log(report);

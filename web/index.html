@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; worker-src 'self'; connect-src 'none'"><meta name="viewport" content="width=device-width,initial-scale=1"><title>桌面绒毯</title><link rel="stylesheet" href="style.css"></head><body>
+<canvas id="cloth"></canvas><div id="flights"></div><div id="broom" aria-hidden="true">🧹</div>
+<div id="hint">抓住毯子拖动 · Shift 整体移动 · 滚轮缩放</div>
+<div id="group-labels" aria-live="polite"></div>
+<section id="styles-panel" hidden aria-label="更换风格">
+<header><strong>更换风格</strong><button id="close-styles" aria-label="关闭风格面板">×</button></header>
+<h2>桌面壁纸</h2><div id="wallpaper-options" class="style-options"></div>
+<button id="choose-wallpaper">重新指定原壁纸…</button>
+<h2>毯子与纸张</h2><div id="rug-options" class="style-options"></div><p>图案随褶皱弯曲 · 滚轮可调整大小</p>
+</section>
+<nav><button id="minus" title="缩小">−</button><button id="plus" title="放大">＋</button><button id="flat">铺平</button><button id="sweep">扫帚</button><button id="organize" title="分成软件入口、文件/PDF、图片三堆">一键整理</button><button id="styles" aria-expanded="false" aria-controls="styles-panel">风格</button><button id="undo">撤销布局</button></nav>
+<script type="module" src="renderer.mjs"></script></body></html>

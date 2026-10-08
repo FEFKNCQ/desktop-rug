@@ -1,0 +1,13 @@
+persian-rug.png
+Generated for this project using the built-in image_gen tool on 2026-10-07.
+No third-party rug photograph was copied.
+
+Generation prompt:
+Use case: product-mockup. Asset type: flat albedo texture for an interactive 3D Persian rug in a Windows desktop app. Generate one exquisitely detailed antique Persian carpet, rich brick/burgundy red field, very dark navy intricate borders, cream small floral motifs, one central dark navy diamond medallion with ivory/gold rosettes, cream corner spandrels. EXACT flat orthographic view from directly overhead, perfectly rectangular, horizontal landscape ratio 3:2. The carpet pattern fills the ENTIRE rectangular image edge-to-edge, borders align to image boundaries, no surrounding margin, no room, no floor, no cast shadow, no perspective, no folded corners, no tassels. Photorealistic tightly woven wool microtexture, softly aged textile, dense symmetrical floral/geometric Persian details. Uniform diffuse illumination suitable as a UV texture; entirely flat. No text or logos.
+
+rug.ico
+Original simple geometric rug glyph, drawn programmatically for this app.
+
+wood-floor.png
+Generated using the built-in image_gen tool on 2026-10-07.
+Prompt: Perfectly top-down orthographic photograph of natural warm honey oak hardwood floor, full 16:9 image. Long horizontal planks, staggered irregular joints, subtle grain, matte wood microtexture, neutral evenly diffused light. No perspective, walls, furniture, rugs, object shadows, people, labels or text. Calm realistic wooden floor for the Windows desktop.

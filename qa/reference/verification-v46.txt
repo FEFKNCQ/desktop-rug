@@ -1,0 +1,51 @@
+DesktopRug v4.6 performance verification — 2026-10-09
+
+Scope
+Collision candidate reuse, cached topology/geometry, squared-distance rejection,
+acknowledged/coalesced motion input, and skipping hit-mask rebuild during captured drag.
+No reduction in cloth resolution, collision iterations, fur layers, or visible strands.
+Native bridge changes only the displayed version number.
+
+Checks
+- node --check: main.cjs, renderer.mjs, self-contact.mjs passed.
+- node web/test-cloth-input.mjs: passed. 13,000 input samples; bounded latest pending
+  motion; final pointer preserved; accumulated translations preserved; release ordered;
+  obsolete acknowledgement ignored.
+- node web/test-physics.mjs: passed; stretch, release, wrinkles, sleep, scale, reset.
+- node web/test-stacking.mjs: passed. Three materials, four folds each, zero crossings
+  at all twelve checkpoints. See stacking-v46.json.
+- build.ps1: succeeded.
+
+Deterministic simulation comparison
+Same frozen initial shape, material, 480 timed steps and pointer sequence per material;
+unprofiled runs in Node. Full reports: drag-stress-baseline.json / drag-stress-current.json.
+Long plush: median 15.93 -> 13.11 ms (17.7% reduction); p95 28.79 -> 21.82 ms.
+Short pile: median 23.99 -> 17.68 ms (26.3% reduction); p95 37.62 -> 27.97 ms.
+Maximum stretch and intersection counts match the baseline for both materials.
+
+Electron integration replay
+Visible preview window, RTX 2060, 1090x715 render target; three 2.8-second oscillating
+corner drags, requested pointer rate 250 Hz. Real mouse events ignored during replay.
+Baseline: 2068 pointer samples; draw interval median 34.5 ms, p95 55.7 ms.
+Current: 2077 pointer samples; draw interval median 20.9 ms, p95 34.8 ms.
+Current dispatched 407 motion messages and coalesced 1670 obsolete samples; pending
+and in-flight were both zero after release. Both runs: 5 fur layers, strands enabled,
+201602 rendered triangles. Full reports: drag-render-baseline.json / drag-render-v46.json.
+The integration test uses wall-clock input and variable simulation throughput, so the
+final shapes differ. Use the deterministic test above for isolated solver comparison.
+These are application submission/CPU timings, not compositor-presented FPS or physical
+mouse-to-screen latency. Hidden-window trial results were discarded because rAF throttled.
+
+Remaining limits
+Extreme rapid crumpling can still stutter and self-intersect, as it did in v4.5.
+Stress crossings by checkpoint: plush [0,4,16]; short pile [122,178,264], identical
+before and after. This release improves speed; it does not claim arbitrary folds are
+intersection-free. Standard stacking regression remains clean.
+
+Privacy and state
+Previews do not save test shapes or change the wallpaper or desktop icon positions.
+Private original-wallpaper snapshots, shape/state, user metrics, profiles and revision
+backups are excluded from the shareable archive.
+
+Live launch: v4.6 running, attached as owned top-level (not child), 1920x1020
+physical work area, visible WebGL desktop, plush selected. No new runtime errors.

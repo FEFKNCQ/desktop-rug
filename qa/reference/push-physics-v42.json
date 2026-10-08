@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "noMovementOnPickup": true,
+  "immediateContact": true,
+  "pushed": 18,
+  "settles": true,
+  "systemIconsFixed": true,
+  "noRugTarget": true,
+  "medianStepMs": 0.019800000000003593,
+  "p95StepMs": 0.1880000000000024
+}

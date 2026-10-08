@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {organizePlan} from './organize.mjs';import {PushIcons} from './push-icons.mjs';
+const icons=Array.from({length:80},(_,i)=>({id:String(i),name:`文件 ${i}`,category:i<24?'apps':i<70?'files':'pictures',x:40,y:40,sweepable:true}));
+const rug={minX:562,maxX:1188,minY:165,maxY:606};const start=performance.now(),plan=organizePlan(icons,1536,816,rug),planMs=performance.now()-start;
+assert.equal(plan.positions.length,80);assert.equal(new Set(plan.positions.map(i=>`${i.x},${i.y}`)).size,80);assert.equal(plan.underRug,0);
+assert.deepEqual(plan,organizePlan([...icons].reverse(),1536,816,rug),'Layout must not depend on Explorer enumeration order');
+for(const p of plan.positions)assert(p.x>=24&&p.x<1512&&p.y>=24&&p.y<750);
+assert.equal(organizePlan([],1536,816,rug).positions.length,0);
+assert.equal(organizePlan([{id:'unknown',name:'无扩展名'}],900,650,null).groups[0].id,'files');
+assert(organizePlan(icons,900,650,{minX:0,minY:0,maxX:900,maxY:650}).underRug>0,'Crowded fallback explicitly reports covered icons');
+globalThis.innerWidth=1536;globalThis.innerHeight=816;let scheduledFrame;globalThis.requestAnimationFrame=fn=>{scheduledFrame=fn;return 1;};globalThis.cancelAnimationFrame=()=>{};
+let active=0,maxActive=0,calls=[],lastPositions;const api={call:async(method,args)=>{calls.push(method);if(method==='beginPush')return [{id:'system',name:'此电脑',x:100,y:100,sweepable:true}];if(method==='commitPush'){maxActive=Math.max(maxActive,++active);await new Promise(r=>setTimeout(r,8));lastPositions=args.positions;active--;}if(method==='endPush')lastPositions=args.positions;return [];}};
+const push=new PushIcons(api,message=>{throw Error(message);});await push.begin();
+for(let i=0;i<80;i++)push.push({x:50+i*4,y:104},{x:54+i*4,y:104});scheduledFrame(16);await push.end();
+assert.equal(maxActive,1);assert(!calls.includes('coverIcons'));assert(!calls.includes('iconImages'));assert(lastPositions[0].x>300,'System icon must move and newest position must be committed');assert(calls.filter(m=>m==='commitPush').length<10,'Slow bridge must not queue every mouse event');
+const report={passed:true,allIconsAssigned:true,unknownFilesIncluded:true,avoidsRug:true,repeatable:true,planMs,nativeBroomNoReplacement:true,systemIconsMovable:true,maxNativeBatchesInFlight:maxActive,coalescedUpdates:calls.filter(m=>m==='commitPush').length};fs.writeFileSync(new URL('../qa/organize-v43.json',import.meta.url),JSON.stringify(report,null,2));console.log(report);

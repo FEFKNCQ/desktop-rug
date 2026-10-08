@@ -1,0 +1,41 @@
+{
+  "variant": "current",
+  "results": [
+    {
+      "material": "plush",
+      "timings": {
+        "n": 480,
+        "median": 13.107900000000882,
+        "p95": 21.817399999999907,
+        "max": 70.95659999999998
+      },
+      "preparePerFrameMs": 5.816414848484863,
+      "contactSolvePerFrameMs": 1.6363343939394526,
+      "crossings": [
+        0,
+        4,
+        16
+      ],
+      "maxStretch": 1.9747863471793778,
+      "finite": true
+    },
+    {
+      "material": "short",
+      "timings": {
+        "n": 480,
+        "median": 17.678900000002614,
+        "p95": 27.96610000000146,
+        "max": 36.78150000000096
+      },
+      "preparePerFrameMs": 9.062219393939355,
+      "contactSolvePerFrameMs": 2.7600869696972232,
+      "crossings": [
+        122,
+        178,
+        264
+      ],
+      "maxStretch": 1.6295682506482727,
+      "finite": true
+    }
+  ]
+}

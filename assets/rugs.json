@@ -1,0 +1,6 @@
+[
+  {"id":"plush","name":"暖白长绒毯","file":null,"material":"plush"},
+  {"id":"autumn-cats","name":"秋日猫咪 · 短绒","file":"cats-short-pile.png","material":"short"},
+  {"id":"jerry-note","name":"杰瑞钞票 · 短绒","file":"jerry-short-pile.png","material":"short"},
+  {"id":"tissue","name":"柔白卫生纸","file":"toilet-tissue.png","material":"paper"}
+]

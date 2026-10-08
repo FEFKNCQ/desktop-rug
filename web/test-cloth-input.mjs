@@ -1,0 +1,15 @@
+import {ClothInput} from './cloth-input.mjs';
+import assert from 'node:assert/strict';
+let messages=[];const input=new ClothInput(m=>messages.push(m));
+input.send({type:'grab',x:0,y:0});
+for(let n=0;n<10000;n++)input.send({type:'move',x:n,y:-n});
+assert.equal(messages.length,2);assert.equal(input.stats().pending,1);
+input.acknowledge(messages[1].motionSequence);assert.equal(messages.length,3);assert.equal(messages[2].x,9999);assert.equal(messages[2].y,-9999);
+input.send({type:'move',x:10100,y:30});input.send({type:'release'});
+assert.equal(messages.at(-2).x,10100);assert.equal(messages.at(-1).type,'release');
+input.acknowledge(messages[2].motionSequence);assert.equal(input.stats().inFlight,1);
+input.acknowledge(messages.at(-2).motionSequence);assert.equal(input.stats().inFlight,0);
+messages=[];for(let n=0;n<3000;n++)input.send({type:'translate',x:.4,y:-.2});input.send({type:'release'});
+const translations=messages.filter(m=>m.type==='translate');assert.equal(translations.length,2);
+assert(Math.abs(translations.reduce((sum,m)=>sum+m.x,0)-1200)<1e-7);assert(Math.abs(translations.reduce((sum,m)=>sum+m.y,0)+600)<1e-7);
+assert.equal(messages.at(-1).type,'release');console.log({passed:true,floodSamples:13000,maxPendingMotion:1,finalPointerPreserved:true,translationDistancePreserved:true,releaseOrdered:true,staleAcknowledgementIgnored:true});

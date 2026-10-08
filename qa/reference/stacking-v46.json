@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "material": "short",
+      "crossingsAfterFolds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianMs": 10.504599999999755,
+      "p95Ms": 14.684100000000399,
+      "maxStretch": 1.0320880969010697,
+      "finite": true
+    },
+    {
+      "material": "paper",
+      "crossingsAfterFolds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianMs": 9.17070000000058,
+      "p95Ms": 13.403399999999237,
+      "maxStretch": 1.0362039569021544,
+      "finite": true
+    },
+    {
+      "material": "plush",
+      "crossingsAfterFolds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianMs": 12.505800000002637,
+      "p95Ms": 17.0070999999989,
+      "maxStretch": 1.0181401763515547,
+      "finite": true
+    }
+  ]
+}

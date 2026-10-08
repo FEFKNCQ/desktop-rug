@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {BroomPhysics} from './broom-physics.mjs';
+const icons=Array.from({length:18},(_,i)=>({id:String(i),x:300+i%6*65,y:260+Math.floor(i/6)*58,sweepable:true}));icons.push({id:'system',x:950,y:300,sweepable:false});
+const sim=new BroomPhysics(icons,1536,816);for(let i=0;i<120;i++)sim.step();assert.equal(sim.changes().length,0,'Taking the broom must not move icons');
+sim.push({x:240,y:300},{x:350,y:300});assert(sim.changes().length>0,'Contact responds before waiting for native work or an animation');
+const times=[];for(let stroke=0;stroke<3;stroke++)for(let i=0;i<80;i++){let from={x:240+i*5,y:280+stroke*40},to={x:245+i*5,y:280+stroke*40};let start=performance.now();sim.push(from,to);sim.step();times.push(performance.now()-start);}
+for(let i=0;i<240&&sim.active;i++)sim.step();assert(!sim.active,'A pile must settle after releasing the broom');assert(sim.changes().length>=6);assert(sim.items.every(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)));const system=sim.items.find(p=>p.id==='system');assert.equal(system.x,950);assert.equal(system.y,300);
+const changed=sim.changes(),meanX=changed.reduce((n,p)=>n+p.x,0)/changed.length;assert(meanX>500&&meanX<850,'Icons are pushed into a local pile, with no attraction to a rug target');
+times.sort((a,b)=>a-b);const report={passed:true,noMovementOnPickup:true,immediateContact:true,pushed:changed.length,settles:true,systemIconsFixed:true,noRugTarget:true,medianStepMs:times[times.length>>1],p95StepMs:times[Math.floor(times.length*.95)]};fs.writeFileSync(new URL('../qa/push-physics-v42.json',import.meta.url),JSON.stringify(report,null,2));console.log(report);

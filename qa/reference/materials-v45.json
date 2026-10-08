@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "material": "plush",
+      "finite": true,
+      "settles": true,
+      "noGroundPenetration": true,
+      "switchPreservesPose": true,
+      "scaleStable": true,
+      "maxStretch": 1.034397839510045
+    },
+    {
+      "material": "short",
+      "finite": true,
+      "settles": true,
+      "noGroundPenetration": true,
+      "switchPreservesPose": true,
+      "scaleStable": true,
+      "maxStretch": 1.1006510440967534
+    },
+    {
+      "material": "paper",
+      "finite": true,
+      "settles": true,
+      "noGroundPenetration": true,
+      "switchPreservesPose": true,
+      "scaleStable": true,
+      "maxStretch": 1.0783135209633061
+    }
+  ]
+}

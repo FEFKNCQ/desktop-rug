@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-09",
+  "version": "4.6.0",
+  "fresh_dependency_install": true,
+  "explicit_electron_runtime_install": true,
+  "windows_native_build": true,
+  "non_desktop_test_suites_passed": 8,
+  "style_preview": {
+    "passed": true,
+    "checks": [
+      {
+        "id": "plush",
+        "selected": "plush",
+        "furLayers": 5,
+        "strandsVisible": true,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 9,
+        "triangles": 201602
+      },
+      {
+        "id": "autumn-cats",
+        "selected": "autumn-cats",
+        "furLayers": 3,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 6,
+        "triangles": 24002
+      },
+      {
+        "id": "jerry-note",
+        "selected": "jerry-note",
+        "furLayers": 3,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 6,
+        "triangles": 24002
+      },
+      {
+        "id": "tissue",
+        "selected": "tissue",
+        "furLayers": 0,
+        "strandsVisible": false,
+        "textureLoaded": true,
+        "shaderErrors": 0,
+        "drawCalls": 3,
+        "triangles": 9602
+      }
+    ],
+    "wallpaperOptions": 4,
+    "rugOptions": 4
+  },
+  "all_original_application_files_present": true,
+  "runtime_sources_and_asset_images_unchanged": true,
+  "personal_files_included": false
+}
