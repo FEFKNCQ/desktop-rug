@@ -1,6 +1,6 @@
-> **分支声明 / Fork notice**
+> **分支声明**
 > 本仓库是 [LongJingSU/desktop-rug](https://github.com/LongJingSU/desktop-rug) 的 fork（分支），作为原作者删除后的镜像备份。
-> This repository is a fork of [LongJingSU/desktop-rug](https://github.com/LongJingSU/desktop-rug), kept as a mirror backup.
+
 > 版权归原作者所有；源代码沿用原始许可证，原始版权与许可声明均完整保留、未作修改。
 
 > **🌐 国内 / 网络不佳时的下载备选（网盘镜像）**
@@ -8,7 +8,7 @@
 > **夸克网盘**：https://pan.quark.cn/s/8be3d7e03038 （微信扫码或点链接即可，含完整 release 文件）
 >
 > 若 GitHub 访问正常，也可在 [本 fork 的 Releases](https://github.com/M49P6BK/desktop-rug/releases) 或 [原项目 Releases](https://github.com/LongJingSU/desktop-rug/releases) 下载。
-<img src="download-qr.png" width="160" alt="夸克网盘下载二维码 / Quark Drive QR code">
+<img src="download-qr.png" width="160" alt="夸克网盘下载二维码">
 
 # DesktopRug · Windows 桌面绒毯
 
